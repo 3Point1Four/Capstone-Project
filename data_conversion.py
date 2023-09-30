@@ -1,28 +1,17 @@
 import os
 import subprocess
 
-# Specify the directory you want to change to
-directory_path = "/path/to/your/directory"
+# Replace 'new_directory_path' with the path of the directory you want to change to
+new_directory_path = 'path_to_input_files'
 
-# Specify the command you want to run in that directory
-command = "ls -l"
+# Change the current directory to the specified path
+subprocess.run(f'cd {new_directory_path}', shell=True)
 
-# Change the working directory to the specified directory
-try:
-    os.chdir(directory_path)
-    print(f"Changed directory to {directory_path}")
-except FileNotFoundError:
-    print(f"Directory '{directory_path}' not found")
+# Loop through numbers 1 to 25
+for i in range(0, 26):
+    input_filename = f'input_{i}.png'
+    output_filename = f'output_{i}.svg'
+    your_command = f'potracer {input_filename} -o {output_filename}'
 
-# Run the command in the current directory
-try:
-    output = subprocess.check_output(command, shell=True, text=True)
-    print("Command Output:")
-    print(output)
-except subprocess.CalledProcessError as e:
-    print(f"Command '{command}' returned non-zero exit status {e.returncode}")
-except FileNotFoundError:
-    print(f"Command '{command}' not found")
-
-# You can replace "/path/to/your/directory" with the actual directory path
-# and "ls -l" with any command you want to run.
+    # Execute the command for each input and output filename
+    subprocess.run(your_command, shell=True)
