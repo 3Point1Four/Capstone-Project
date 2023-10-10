@@ -1,6 +1,7 @@
 @font-face {
     font-family: heading;
-    src: url(../assets/Banchero-Bold.otf) format("opentype");;
+    src: url(../assets/Banchero-Bold.otf) format("opentype");
+    ;
 }
 
 body {
@@ -28,18 +29,6 @@ body.dark-mode {
     color: #cacaca;
 }
 
-.svgProperties.light-mode {
-    stroke: #333333;
-    background-color: #00000000;
-    stroke-width: 5;
-}
-
-.svgProperties.dark-mode {
-    stroke: #CCCCCC;
-    background-color: #00000000;
-    stroke-width: 5;
-}
-
 .light-mode {
     background-color: #fff;
     color: #333;
@@ -52,29 +41,29 @@ body.dark-mode {
 
 .toggle-container {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 6vh;
+    right: 6vh;
 }
 
 .toggle-label {
     display: block;
     position: relative;
-    width: 40px;
-    height: 20px;
+    width: 7vh;
+    height: 5vh;
     background-color: #ccc;
-    border-radius: 20px;
+    border-radius: 6vh;
     cursor: pointer;
 }
 
 .toggle-button {
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 16px;
-    height: 16px;
+    top: 0.5vh;
+    left: 0.5vh;
+    width: 4vh;
+    height: 4vh;
     background-color: #fff;
     border-radius: 50%;
-    transition: transform 0.2s;
+    transition: transform 0.4s;
 }
 
 #dark-mode-toggle {
@@ -97,17 +86,17 @@ body.dark-mode {
 /* Modern button style */
 button {
     padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: #fff;
+    font-size: 2vh;
+    background-color: #d9ebff;
+    color: #333333;
     border: none;
-    border-radius: 5px;
+    border-radius: 1vh;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #98caff;
 }
 
 button#revealButton:disabled {
@@ -115,7 +104,7 @@ button#revealButton:disabled {
 }
 
 .dark-mode button#revealButton:disabled {
-    background-color: #583030;    
+    background-color: #583030;
 }
 
 .dark-mode button:hover {
@@ -162,4 +151,76 @@ button#revealButton:disabled {
     to {
         stroke-dashoffset: 0;
     }
+}
+
+.svgProperties.light-mode {
+    stroke: #333333;
+    background-color: #00000000;
+    stroke-width: 5;
+}
+
+.svgProperties.dark-mode {
+    stroke: #CCCCCC;
+    background-color: #00000000;
+    stroke-width: 5;
+}
+
+.svgProperties.light-mode#b1 {
+    stroke: #333333;
+    background-color: #00000000;
+    stroke-width: 1;
+}
+
+.svgProperties.dark-mode#b1 {
+    stroke: #CCCCCC;
+    background-color: #00000000;
+    stroke-width: 1;
+}
+
+.svgProperties.light-mode#b2 {
+    fill: #333333;
+    background-color: #00000000;
+    /* stroke-width: 1; */
+}
+
+.svgProperties.dark-mode#b2 {
+    fill: #CCCCCC;
+    background-color: #00000000;
+    /* stroke-width: 1; */
+}
+
+.svgProperties.light-mode#b3 {
+    fill: #333333;
+        background-color: #00000000;
+        /* stroke-width: 1; */
+}
+
+.svgProperties.dark-mode#b3 {
+    fill: #CCCCCC;
+        background-color: #00000000;
+        /* stroke-width: 1; */
+}
+
+.svgProperties.light-mode#b4 {
+    fill: #333333;
+    background-color: #00000000;
+    /* stroke-width: 1; */
+}
+
+.svgProperties.dark-mode#b4 {
+    fill: #CCCCCC;
+    background-color: #00000000;
+    /* stroke-width: 1; */
+}
+
+.settIcon.light-mode {
+    stroke: #333333;
+    background-color: #00000000;
+    stroke-width: 2;
+}
+
+.settIcon.dark-mode {
+    stroke: #CCCCCC;
+    background-color: #00000000;
+    stroke-width: 2;
 }

@@ -1,53 +1,65 @@
-// Function to toggle dark mode
-function toggleDarkMode() {
-  const body = document.body;
-  const svgProperties = document.querySelector(".svgProperties");
+  // Function to toggle dark mode
+  function toggleDarkMode() {
+    const body = document.body;
+    const svgProperties = document.querySelector(".svgProperties");
+    const settIcon = document.querySelector(".settIcon");
 
-  // Toggle dark mode class on the body
-  body.classList.toggle("dark-mode");
-  body.classList.toggle("light-mode");
+    // Check if the body has dark-mode class
+    const isDarkMode = body.classList.contains("dark-mode");
 
-  // Toggle dark mode class on svgProperties
-  svgProperties.classList.toggle("light-mode"); // Initially set to light-mode
-  svgProperties.classList.toggle("dark-mode");
-} // Toggle light mode as well
+    // Remove both classes from body and svgProperties
+    body.classList.remove("dark-mode", "light-mode");
+    svgProperties.classList.remove("dark-mode", "light-mode");
+    settIcon.classList.remove("dark-mode", "light-mode");
 
-// Function to navigate between pages
-function goToPage(pageNumber) {
-  switch (pageNumber) {
-    case 0:
-      window.location.href = "index.html";
-      break;
-    case 1:
-      window.location.href = "page1.html";
-      break;
-    case 2:
-      window.location.href = "page2.html";
-      break;
-    default:
-      break;
+    // Toggle the appropriate class based on isDarkMode
+    if (isDarkMode) {
+      body.classList.add("light-mode");
+      svgProperties.classList.add("light-mode");
+      settIcon.classList.add("light-mode");
+    } else {
+      body.classList.add("dark-mode");
+      svgProperties.classList.add("dark-mode");
+      settIcon.classList.add("dark-mode");
+    }
   }
-}
 
-// Event listener for dark mode toggle
-const darkModeToggle = document.getElementById("dark-mode-toggle");
-darkModeToggle.addEventListener("change", toggleDarkMode);
+  // Function to navigate between pages
+  function goToPage(pageNumber) {
+    switch (pageNumber) {
+      case 0:
+        window.location.href = "index.html";
+        break;
+      case 1:
+        window.location.href = "page1.html";
+        break;
+      case 2:
+        window.location.href = "page2.html";
+        break;
+      default:
+        break;
+    }
+  }
 
-function revealImage() {
-  const svgContainer = document.getElementById("svgContainer");
+  // Event listener for dark mode toggle
+  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  darkModeToggle.addEventListener("change", toggleDarkMode);
 
-  // Show the SVG container
-  svgContainer.style.display = "block";
+  function revealImage() {
+    const svgContainer = document.getElementById("svgContainer");
 
-  // Start the animation
-  const strokeAnimation = document.getElementById("strokeAnimation");
-  strokeAnimation.beginElement();
+    // Show the SVG container
+    svgContainer.style.display = "block";
 
-  // Disable the button after revealing the image (optional)
+    // Start the animation
+    const strokeAnimation = document.getElementById("strokeAnimation");
+    strokeAnimation.beginElement();
+
+    // Disable the button after revealing the image (optional)
+    const revealButton = document.getElementById("revealButton");
+    revealButton.disabled = true;
+  }
+
+  // Add a click event listener to the "Reveal Image" button
   const revealButton = document.getElementById("revealButton");
-  revealButton.disabled = true;
-}
-
-// Add a click event listener to the "Reveal Image" button
-const revealButton = document.getElementById("revealButton");
-revealButton.addEventListener("click", revealImage);
+  revealButton.addEventListener("click", revealImage);
