@@ -33,7 +33,7 @@ int main() {
 
     // Write the SVG content with the entire input content to the output file
     svgFile << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << std::endl;
-    svgFile << "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"500\">" << std::endl;
+    svgFile << "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"500\" id=\"imageToAnimate\">" << std::endl;
     svgFile << "  <rect x=\"0\" y=\"0\" width=\"500\" height=\"500\" fill=\"white\"/>" << std::endl;
     svgFile << "  <path d=\"" << inputContent << "\" stroke=\"black\" />" << std::endl;
     svgFile << "</svg>" << std::endl;

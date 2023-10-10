@@ -1,0 +1,165 @@
+@font-face {
+    font-family: heading;
+    src: url(../assets/Banchero-Bold.otf) format("opentype");;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    transition: background-image 0.5s, color 0.5s;
+    background-image: url("../assets/light-bg.jpg");
+    background-size: cover;
+}
+
+h1 {
+    font-family: heading;
+    color: #161616;
+    font-size: 10vh;
+}
+
+body.dark-mode {
+    background-image: url("../assets/dark-bg.jpg");
+    background-size: cover;
+}
+
+.dark-mode h1 {
+    font-family: heading;
+    color: #cacaca;
+}
+
+.svgProperties.light-mode {
+    stroke: #333333;
+    background-color: #00000000;
+    stroke-width: 5;
+}
+
+.svgProperties.dark-mode {
+    stroke: #CCCCCC;
+    background-color: #00000000;
+    stroke-width: 5;
+}
+
+.light-mode {
+    background-color: #fff;
+    color: #333;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.toggle-label {
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+#dark-mode-toggle {
+    display: none;
+}
+
+/* Style for the checked state (dark mode) */
+#dark-mode-toggle:checked+.toggle-label .toggle-button {
+    transform: translateX(20px);
+    background-color: #333;
+}
+
+.buttons-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Modern button style */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#revealButton:disabled {
+    background-color: rgb(204, 137, 137);
+}
+
+.dark-mode button#revealButton:disabled {
+    background-color: #583030;    
+}
+
+.dark-mode button:hover {
+    background-color: #505050;
+}
+
+.dark-mode button {
+    background-color: #161616;
+    color: #fff;
+}
+
+#svg-plate {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 80vw;
+    height: 50vh;
+    border-radius: 10vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#svgContainer {
+    margin: 40px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -45% -45%;
+    z-index: 10;
+}
+
+#imageToAnimate {
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
+}
+
+.animate-stroke {
+    animation: animate-stroke 2s linear forwards;
+}
+
+@keyframes animate-stroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

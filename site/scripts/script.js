@@ -1,58 +1,53 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const button1 = document.getElementById("b1");
+// Function to toggle dark mode
+function toggleDarkMode() {
+  const body = document.body;
+  const svgProperties = document.querySelector(".svgProperties");
 
-  button1.addEventListener("click", function () {
-    window.location.href = "handwriting.html";
-  });
-});
+  // Toggle dark mode class on the body
+  body.classList.toggle("dark-mode");
+  body.classList.toggle("light-mode");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const buttonback = document.getElementById("back");
+  // Toggle dark mode class on svgProperties
+  svgProperties.classList.toggle("light-mode"); // Initially set to light-mode
+  svgProperties.classList.toggle("dark-mode");
+} // Toggle light mode as well
 
-  buttonback.addEventListener("click", function () {
-    console.log("back")
-    window.location.href = "index.html";
-  });
-});
+// Function to navigate between pages
+function goToPage(pageNumber) {
+  switch (pageNumber) {
+    case 0:
+      window.location.href = "index.html";
+      break;
+    case 1:
+      window.location.href = "page1.html";
+      break;
+    case 2:
+      window.location.href = "page2.html";
+      break;
+    default:
+      break;
+  }
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const button4 = document.getElementById("b4");
-  const creditsDiv = document.getElementById("credits");
+// Event listener for dark mode toggle
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+darkModeToggle.addEventListener("change", toggleDarkMode);
 
-  button4.addEventListener("click", function () {
-    if (
-      creditsDiv.style.display === "none" ||
-      creditsDiv.style.display === ""
-    ) {
-      creditsDiv.style.display = "block";
-    } else {
-      creditsDiv.style.display = "none";
-    }
-  });
-});
+function revealImage() {
+  const svgContainer = document.getElementById("svgContainer");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const animateButton = document.getElementById("animateButton");
+  // Show the SVG container
+  svgContainer.style.display = "block";
 
-  animateButton.addEventListener("click", function () {
-    const pathElement = document.getElementById("animatedPath");
+  // Start the animation
+  const strokeAnimation = document.getElementById("strokeAnimation");
+  strokeAnimation.beginElement();
 
-    // Add a class to trigger the animation
-    pathElement.classList.add("animate-svg-path");
+  // Disable the button after revealing the image (optional)
+  const revealButton = document.getElementById("revealButton");
+  revealButton.disabled = true;
+}
 
-    // Get the total length of the SVG path and round it down to the nearest whole number
-    const length = Math.floor(pathElement.getTotalLength());
-
-    // Update the CSS variable with the rounded length
-    document.documentElement.style.setProperty("--length", length);
-
-    // Log the updated length
-    console.log(`Updated Length (Rounded Down): ${length}`);
-
-    // Log the current value of the CSS variable
-    const cssVariableValue = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue("--length");
-    console.log(`Current CSS Variable Value: ${cssVariableValue}`);
-  });
-});
+// Add a click event listener to the "Reveal Image" button
+const revealButton = document.getElementById("revealButton");
+revealButton.addEventListener("click", revealImage);
